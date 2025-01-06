@@ -31,7 +31,7 @@ const App = () => {
   };
 
   return (
-    <div className="App">
+    <div>
        <head>
         <title>Fake Store</title>
         <meta name="description" content="A fake store application built with React and Tailwind CSS." />

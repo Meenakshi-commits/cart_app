@@ -31,11 +31,8 @@ const App = () => {
   };
 
   return (
-    <div className="App">
-       <head>
-        <title>Fake Store</title>
-        <meta name="description" content="A fake store application built with React and Tailwind CSS." />
-      </head>
+    <div>
+      
       <Navbar cartCount={cart.length} toggleCartModal={toggleCartModal} />
       <ProductList products={products} addToCart={addToCart} />
       {cartModalOpen && (
