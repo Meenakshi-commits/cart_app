@@ -1,8 +1,8 @@
 import React from 'react';
 
-const CartModal = ({ cart, removeFromCart, toggleCartModal }) => {
+const CartModal = ({ cart, removeFromCart }) => {
   return (
-    <div className="bg-white p-4 rounded shadow-md h-full">
+    <div className="bg-white p-4 rounded shadow-md">
       <h2 className="text-xl font-bold mb-4">Cart</h2>
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
@@ -24,12 +24,6 @@ const CartModal = ({ cart, removeFromCart, toggleCartModal }) => {
           ))}
         </ul>
       )}
-      <button
-        onClick={toggleCartModal}
-        className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-      >
-        Close
-      </button>
     </div>
   );
 };

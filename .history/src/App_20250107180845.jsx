@@ -39,17 +39,13 @@ const App = () => {
           <ProductList products={products} addToCart={addToCart} />
         </div>
         {/* Right Section - Cart Modal */}
-        <div className="w-1/4 p-4 bg-gray-100">
-          {isCartModalOpen ? (
+        <div className="w-1/4 p-4">
+          {isCartModalOpen && (
             <CartModal
               cart={cart}
               removeFromCart={removeFromCart}
               toggleCartModal={toggleCartModal}
             />
-          ) : (
-            <div className="flex justify-center items-center h-full">
-              <p className="text-gray-500">Cart is closed. Click "Cart" to toggle.</p>
-            </div>
           )}
         </div>
       </div>
