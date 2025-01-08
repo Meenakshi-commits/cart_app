@@ -40,20 +40,17 @@ const App = () => {
       <Navbar cartCount={cart.length} toggleCartModal={toggleCartModal} />
 
       {/* Product List */}
-      <div className="max-w-screen-xl mx-auto p-6">
-        <ProductList products={products} addToCart={addToCart} />
-      </div>
+      
+      <ProductList products={products} addToCart={addToCart} />
 
-      {/* Cart Modal */}
+      {/* Cart Modal as a Dialog */}
       {isCartModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="w-11/12 md:w-1/2 bg-white p-6 rounded shadow-lg">
-            <CartModal
-              cart={cart}
-              removeFromCart={removeFromCart}
-              toggleCartModal={toggleCartModal}
-            />
-          </div>
+          <CartModal
+            cart={cart}
+            removeFromCart={removeFromCart}
+            toggleCartModal={toggleCartModal}
+          />
         </div>
       )}
     </div>

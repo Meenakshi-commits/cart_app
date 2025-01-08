@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
-import CartModal from "./components/CartModal";
+import CartModal from "./components/CartModal"; // Fixed import path for CartModal
 
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
-  // Fetch products from the Fake Store API
+  // Fetch products from the API on component mount
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
@@ -29,35 +29,30 @@ const App = () => {
     setCart(cart.filter((item) => item.id !== id));
   };
 
-  // Toggle Cart Modal visibility
+  // Toggle cart modal visibility
   const toggleCartModal = () => {
     setIsCartModalOpen(!isCartModalOpen);
   };
 
   return (
     <div className="App">
-      {/* Navbar */}
+      {/* Navbar with cart count */}
       <Navbar cartCount={cart.length} toggleCartModal={toggleCartModal} />
-
-      {/* Product List */}
-      <div className="max-w-screen-xl mx-auto p-6">
-        <ProductList products={products} addToCart={addToCart} />
-      </div>
-
+      
+      {/* List of products */}
+      <ProductList products={products} addToCart={addToCart} />
+      
       {/* Cart Modal */}
       {isCartModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="w-11/12 md:w-1/2 bg-white p-6 rounded shadow-lg">
-            <CartModal
-              cart={cart}
-              removeFromCart={removeFromCart}
-              toggleCartModal={toggleCartModal}
-            />
-          </div>
-        </div>
+        <CartModal
+          cart={cart}
+          removeFromCart={removeFromCart}
+          toggleCartModal={toggleCartModal}
+        />
       )}
     </div>
   );
 };
 
 export default App;
+

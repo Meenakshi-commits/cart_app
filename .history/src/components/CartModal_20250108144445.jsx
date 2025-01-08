@@ -7,7 +7,7 @@ const CartModal = ({ cart, removeFromCart, toggleCartModal }) => {
   return (
     <div
       className="bg-white w-11/12 md:w-1/2 p-6 rounded-lg shadow-lg"
-      onClick={(e) => e.stopPropagation()} 
+      onClick={(e) => e.stopPropagation()} // Prevent clicks inside the modal from closing it
     >
       <h2 className="text-xl font-bold mb-4">Your Cart</h2>
 
@@ -20,7 +20,7 @@ const CartModal = ({ cart, removeFromCart, toggleCartModal }) => {
               <li key={item.id} className="flex justify-between items-center mb-4">
                 <div>
                   <h3 className="font-bold">{item.title}</h3>
-                  <p>Rs.{item.price}</p>
+                  <p>${item.price}</p>
                 </div>
                 <button
                   onClick={() => removeFromCart(item.id)}
@@ -33,7 +33,7 @@ const CartModal = ({ cart, removeFromCart, toggleCartModal }) => {
           </ul>
           <div className="mt-4 flex justify-between items-center">
             <p className="font-bold">Total:</p>
-            <p className="font-bold">Rs.{totalValue}</p>
+            <p className="font-bold">${totalValue}</p>
           </div>
         </>
       )}

@@ -16,7 +16,7 @@ const Navbar = ({ cartCount, toggleCartModal }) => {
         onClick={toggleCartModal}
         className="bg-white text-blue-500 px-4 py-2 rounded"
       >
-        Total Cart Items ({cartCount})
+        Total  ({cartCount})
       </button>
     </nav>
   );

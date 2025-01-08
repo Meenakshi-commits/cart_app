@@ -33,7 +33,7 @@ const CartModal = ({ cart, removeFromCart, toggleCartModal }) => {
           </ul>
           <div className="mt-4 flex justify-between items-center">
             <p className="font-bold">Total:</p>
-            <p className="font-bold">Rs.{totalValue}</p>
+            <p className="font-bold">{totalValue}</p>
           </div>
         </>
       )}
